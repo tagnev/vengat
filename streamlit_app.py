@@ -5,6 +5,7 @@ st.title('Vengateswaran Arunachalam')
 
 # Contact Information
 st.sidebar.header('Contact Information')
+st.sidebar.image('https://media.licdn.com/dms/image/D5603AQGzch8kk3Cs1A/profile-displayphoto-shrink_200_200/0/1696458140217?e=1704931200&v=beta&t=IC1H7RGnR3fJFLhMeWRZq95-_VWJH7yh2HxGGUNh0dg', width=150)  
 st.sidebar.write("""
 Santa Clara, CA 95051  
 (408)784-9915  
