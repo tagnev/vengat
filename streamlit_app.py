@@ -74,13 +74,13 @@ with col1:
     st.image('https://media.licdn.com/dms/image/D5603AQGzch8kk3Cs1A/profile-displayphoto-shrink_200_200/0/1696458140217?e=1704931200&v=beta&t=IC1H7RGnR3fJFLhMeWRZq95-_VWJH7yh2HxGGUNh0dg', width=120)
 with col2:
     st.title('Vengateswaran Arunachalam')
-    st.write('Santa Clara, CA 95051  |  tagnev.vengat@gmail.com')
+    st.write('Santa Clara, CA 95051 ')
 
 # Contact Information
 st.sidebar.markdown('<p class="contact-header"><i class="fas fa-envelope icon"></i>Contact Information</p>', unsafe_allow_html=True)
 st.sidebar.markdown("""
 Santa Clara, CA 95051  
-[tagnev.vengat@gmail.com](mailto:tagnev.vengat@gmail.com)  
+ 
 [<i class="fab fa-linkedin icon"></i>LinkedIn](https://www.linkedin.com/in/vengateswaran-arunachalam/)  
 [<i class="fab fa-github icon"></i>GitHub](https://github.com/tagnev)  
 [<i class="fab fa-medium icon"></i>Medium](https://medium.com/@tagnev.vengat)
