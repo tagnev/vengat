@@ -3,10 +3,46 @@ import streamlit as st
 # Set page config
 st.set_page_config(page_title="Vengateswaran Arunachalam's Resume", layout="wide")
 
-# Main title
-st.image('https://media.licdn.com/dms/image/D5603AQGzch8kk3Cs1A/profile-displayphoto-shrink_200_200/0/1696458140217?e=1704931200&v=beta&t=IC1H7RGnR3fJFLhMeWRZq95-_VWJH7yh2HxGGUNh0dg', width=120)
-st.title('Vengateswaran Arunachalam')
-st.write('Santa Clara, CA 95051 | (408)784-9915 | tagnev.vengat@gmail.com')
+# Custom styles for the resume
+st.markdown("""
+<style>
+body {
+    font-family: 'Helvetica', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .sidebar-header {
+    font-family: 'Helvetica';
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+div.block-container {
+    padding-top: 2rem;
+}
+.section-header {
+    background-color: #0e1117;
+    color: #ffffff;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+.contact-form {
+    background-color: #fafafa;
+    padding: 2em;
+    border-radius: 0.5em;
+    margin-top: 1em;
+}
+.contact-form input, .contact-form textarea {
+    margin-bottom: 1em;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Main title with image
+col1, col2 = st.columns([1, 4])
+with col1:
+    st.image('https://media.licdn.com/dms/image/D5603AQGzch8kk3Cs1A/profile-displayphoto-shrink_200_200/0/1696458140217?e=1704931200&v=beta&t=IC1H7RGnR3fJFLhMeWRZq95-_VWJH7yh2HxGGUNh0dg', width=120)
+with col2:
+    st.title('Vengateswaran Arunachalam')
+    st.write('Santa Clara, CA 95051  |  tagnev.vengat@gmail.com')
 st.markdown('---')
 
 # Sidebar with contact info
@@ -19,6 +55,18 @@ Santa Clara, CA 95051
 [Medium](https://medium.com/@tagnev.vengat)
 """)
 st.sidebar.markdown('---')
+
+# Contact form in the main page
+st.markdown('<p class="section-header">Contact Me</p>', unsafe_allow_html=True)
+with st.form(key='contact_form'):
+    name = st.text_input('Name')
+    email = st.text_input('Email')
+    message = st.text_area('Message')
+    submit_button = st.form_submit_button('Send')
+
+    if submit_button:
+        # Process the form data (e.g., send an email)
+        st.write('Thank you for your message!')
 
 # Professional Summary
 st.subheader('Professional Summary')
