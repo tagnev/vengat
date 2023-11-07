@@ -3,37 +3,69 @@ import streamlit as st
 # Set page config
 st.set_page_config(page_title="Vengateswaran Arunachalam's Resume", layout="wide")
 
-# Custom styles for the resume
+# Custom styles
 st.markdown("""
 <style>
 body {
     font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
-h1, h2, h3, h4, h5, h6, .sidebar-header {
+
+h1, h2, h3, h4, h5, h6, .sidebar-header, .section-header, .contact-header {
     font-family: 'Helvetica';
     font-weight: 700;
     letter-spacing: 0.1em;
+    color: #0e1117;
 }
-div.block-container {
-    padding-top: 2rem;
-}
+
 .section-header {
-    background-color: #0e1117;
-    color: #ffffff;
-    padding: 1em 2em;
-    border-radius: 0.5em;
-    margin-bottom: 1em;
+    font-size: 26px;
+    background-color: #ff4b4b;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
 }
+
+.detail-text {
+    padding: 0.25rem 1rem;
+    margin: 0.25rem 0;
+    border-left: 5px solid #ff4b4b;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.sidebar .sidebar-content {
+    background-color: #f0f8ff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
 .contact-form {
-    background-color: #fafafa;
-    padding: 2em;
-    border-radius: 0.5em;
-    margin-top: 1em;
+    background-color: #f0f8ff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 25px;
 }
+
 .contact-form input, .contact-form textarea {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    color: #ff4b4b;
 }
 </style>
+""", unsafe_allow_html=True)
+
+# Load FontAwesome for icons
+st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-1PCqXZRn1zEe5m+gkxvf8VN4Q2xvgzw0KfXZ0Uf3lCzXCFvVXqrrUizwQfJjyApt8B/5lTh5QBE6P6VnqQZNug==" crossorigin="anonymous" />
 """, unsafe_allow_html=True)
 
 # Main title with image
@@ -43,53 +75,41 @@ with col1:
 with col2:
     st.title('Vengateswaran Arunachalam')
     st.write('Santa Clara, CA 95051  |  tagnev.vengat@gmail.com')
-st.markdown('---')
 
-# Sidebar with contact info
-st.sidebar.header('Contact Information')
-st.sidebar.write("""
+# Contact Information
+st.sidebar.markdown('<p class="contact-header"><i class="fas fa-envelope icon"></i>Contact Information</p>', unsafe_allow_html=True)
+st.sidebar.markdown("""
 Santa Clara, CA 95051  
 [tagnev.vengat@gmail.com](mailto:tagnev.vengat@gmail.com)  
-[LinkedIn](https://www.linkedin.com/in/vengateswaran-arunachalam/)  
-[GitHub](https://github.com/tagnev)  
-[Medium](https://medium.com/@tagnev.vengat)
-""")
-st.sidebar.markdown('---')
-
-# Contact form in the main page
-st.markdown('<p class="section-header">Contact Me</p>', unsafe_allow_html=True)
-with st.form(key='contact_form'):
-    name = st.text_input('Name')
-    email = st.text_input('Email')
-    message = st.text_area('Message')
-    submit_button = st.form_submit_button('Send')
-
-    if submit_button:
-        # Process the form data (e.g., send an email)
-        st.write('Thank you for your message!')
+[<i class="fab fa-linkedin icon"></i>LinkedIn](https://www.linkedin.com/in/vengateswaran-arunachalam/)  
+[<i class="fab fa-github icon"></i>GitHub](https://github.com/tagnev)  
+[<i class="fab fa-medium icon"></i>Medium](https://medium.com/@tagnev.vengat)
+""", unsafe_allow_html=True)
 
 # Professional Summary
-st.subheader('Professional Summary')
-st.write("""
-Accomplished Full Stack Data Engineer & Data Architect with 14+ years of expertise in BI solutions. 
+st.markdown('<p class="section-header"><i class="fas fa-user-tie icon"></i>Professional Summary</p>', unsafe_allow_html=True)
+st.markdown("""
+<p class="detail-text">Accomplished Full Stack Data Engineer & Data Architect with 14+ years of expertise in BI solutions. 
 Proficient in Spark, Hadoop, Python, ReactJS, and the complete SDLC. Solid experience in cloud services 
 with AWS & GCP, database solutions both in the cloud and on-premise, and mastery of BI tools including 
 Tableau and MicroStrategy. Demonstrable skills in customer-focused open-source projects, content creation, 
 and community engagement. Excel at advanced database solutions, ETL processes, and enhancing data 
-infrastructure. Well-versed in partnering with diverse teams to foster data-driven strategies.
-""")
+infrastructure. Well-versed in partnering with diverse teams to foster data-driven strategies.</p>
+""", unsafe_allow_html=True)
 
 # Skills
-st.subheader('Skills')
-st.write("""
-- Docker, DBT, Kubernetes, Git
-- AWS & GCP architecture
-- Python (Django, Flask, FastAPI)
-- Shell scripting
-- MySQL/Relational DB, Snowflake, Postgresql
-- Hadoop, Tableau, MicroStrategy, Looker
+st.markdown('<p class="section-header"><i class="fas fa-lightbulb icon"></i>Skills</p>', unsafe_allow_html=True)
+st.markdown("""
+<p class="detail-text">
+- Docker, DBT, Kubernetes, Git<br>
+- AWS & GCP architecture<br>
+- Python (Django, Flask, FastAPI)<br>
+- Shell scripting<br>
+- MySQL/Relational DB, Snowflake, Postgresql<br>
+- Hadoop, Tableau, MicroStrategy, Looker<br>
 - Cassandra, NoSQL, Pyspark, Airflow, Streamlit, openAI, Incorta
-""")
+</p>
+""", unsafe_allow_html=True)
 
 # Work History
 st.subheader('Work History')
